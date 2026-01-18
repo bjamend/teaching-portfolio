@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benjamin J. Amend | Teaching Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <section class="hero" aria-label="Site banner">
+    <div class="hero-inner">
+      <div class="hero-banner">
+        <h1 class="hero-title">Benjamin J. Amend</h1>
+      </div>
+    </div>
+  </section>
+
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="philosophy.html">Teaching Philosophy</a></li>
+
+      <li>
+        <a href="educational-materials.html" aria-haspopup="true">Educational Materials</a>
+        <div class="dropdown" role="menu" aria-label="Educational Materials submenu">
+          <div class="panel">
+            <a role="menuitem" href="teaching-materials.html">Lecture Materials</a>
+            <a role="menuitem" href="lab-materials.html">Lab Materials</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <a href="evaluations.html" aria-haspopup="true">Evaluations</a>
+        <div class="dropdown" role="menu" aria-label="Evaluations submenu">
+          <div class="panel">
+            <a role="menuitem" href="teaching-evals.html">Lecture Evaluations</a>
+            <a role="menuitem" href="lab-evals.html">Lab Evaluations</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="content">
+    <div class="panel-box">
+
+      <h2 class="section-header">Lecture Materials</h2>
+
+      <p class="body-content">
+        I have tutored, led supplemental instruction sessions, and given guest lectures over the course of my undergraduate and graduate education.
+        Included here are representative materials from a single guest lecture, including a recording of the lecture itself, the slide deck including clicker questions, and materials for one of the active learning exercises.
+        This lecture was for the course "Physics for Everyone" at Clemson University, a gen-ed class for non-science majors.
+        Student and observing faculty feedback for this lecture can be found on the 'Lecture Evaluations' page.
+      <p>
+
+      <p>
+        Below is the lecture recording:
+      </p>
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/oOQ1X4jlNzU"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p>
+        The lecture slides:
+      </p>
+
+      <div class="pdf-container">
+        <iframe src="downloads/lecture-slides.pdf" title="Lecture Slides"></iframe>
+      </div>
+
+      <p>
+        And below are the materials for the selected active learning exercise.
+        In this activity, students compare printed element spectra with the solar spectrum to identify which elements make up the Sun.
+        They should conclude that Argon and Neon are absent (although these elements exist in trace amounts in the Sun, the mock solar spectrum used here includes only Fraunhofer lines).
+        The most observant students may also notice that some lines in the solar spectrum do not match any of the provided element spectra.
+        These unexplained lines correspond to Helium.
+      </p>
+
+      <div class="pdf-container">
+        <iframe src="downloads/lecture-activity.pdf" title="Active Learning Materials"></iframe>
+      </div>
+
+      <p>
+        Below, test your knowledge of what you learned from the lecture!
+      </p>
+
+      <div class="quiz" id="quiz1">
+        <div class="quiz-top">
+          <button class="quiz-nav" type="button" aria-label="Previous question" onclick="quizPrev('quiz1')">←</button>
+          <div class="quiz-indicator" id="quiz1-indicator">Question 1 of 3</div>
+          <button class="quiz-nav" type="button" aria-label="Next question" onclick="quizNext('quiz1')">→</button>
+        </div>
+
+        <!-- Q1: True/False -->
+        <div class="quiz-card" data-idx="0">
+          <div class="quiz-q"><strong>A.</strong> True or False: A perfect blackbody is always black in color.</div>
+
+          <div class="quiz-options">
+            <label><input type="radio" name="q1_tf" value="true"> True</label>
+            <label><input type="radio" name="q1_tf" value="false"> False</label>
+          </div>
+
+          <button class="quiz-submit" type="button" onclick="submitQ1('quiz1')">Submit</button>
+
+          <div class="quiz-feedback" id="quiz1-q1-feedback" aria-live="polite"></div>
+          <div class="quiz-reason" id="quiz1-q1-reason" aria-live="polite"></div>
+        </div>
+
+        <!-- Q2: Multiple choice -->
+        <div class="quiz-card" data-idx="1" style="display:none;">
+          <div class="quiz-q">
+            <strong>B.</strong> An electron drops from the 5th energy level to the 2nd energy level. Which of the following statements is correct?
+          </div>
+
+          <div class="quiz-options">
+            <label><input type="radio" name="q2_mc" value="lost"> The electron lost energy.</label>
+            <label><input type="radio" name="q2_mc" value="gained"> The electron gained energy.</label>
+            <label><input type="radio" name="q2_mc" value="constant"> The energy of the electron remained constant.</label>
+            <label><input type="radio" name="q2_mc" value="insufficient"> There is insufficient information to determine anything about the change in energy of the electron.</label>
+          </div>
+
+          <button class="quiz-submit" type="button" onclick="submitQ2('quiz1')">Submit</button>
+
+          <div class="quiz-feedback" id="quiz1-q2-feedback" aria-live="polite"></div>
+          <div class="quiz-reason" id="quiz1-q2-reason" aria-live="polite"></div>
+        </div>
+
+        <!-- Q3: Numeric input -->
+        <div class="quiz-card" data-idx="2" style="display:none;">
+          <div class="quiz-q">
+            <strong>C.</strong> A laser produces light with a frequency of 3.0 × 10<sup>14</sup> Hz.
+            What is the energy (in eV) of a photon of this frequency, to two decimal places?
+          </div>
+
+          <div class="quiz-input-row">
+            <input class="quiz-input" type="text" inputmode="decimal" placeholder="Enter value in eV (e.g., 1.24)" id="quiz1-q3-input">
+            <span class="quiz-unit">eV</span>
+          </div>
+
+          <button class="quiz-submit" type="button" onclick="submitQ3('quiz1')">Submit</button>
+
+          <div class="quiz-feedback" id="quiz1-q3-feedback" aria-live="polite"></div>
+          <div class="quiz-reason" id="quiz1-q3-reason" aria-live="polite"></div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</main>
+
+<script>
+/* -------------------------
+   Quiz state + navigation
+-------------------------- */
+const quizState = {}; // { quizId: currentIndex }
+
+function setQuizIndex(quizId, idx){
+  const root = document.getElementById(quizId);
+  const cards = root.querySelectorAll(".quiz-card");
+  const n = cards.length;
+
+  const clamped = Math.max(0, Math.min(idx, n - 1));
+  quizState[quizId] = clamped;
+
+  cards.forEach(card => {
+    const cardIdx = Number(card.dataset.idx);
+    card.style.display = (cardIdx === clamped) ? "block" : "none";
+  });
+
+  const indicator = document.getElementById(`${quizId}-indicator`);
+  if (indicator) indicator.textContent = `Question ${clamped + 1} of ${n}`;
+}
+
+function quizPrev(quizId){
+  const idx = quizState[quizId] ?? 0;
+  setQuizIndex(quizId, idx - 1);
+}
+
+function quizNext(quizId){
+  const idx = quizState[quizId] ?? 0;
+  setQuizIndex(quizId, idx + 1);
+}
+
+// Initialize on load (works even if you add more quizzes later)
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".quiz").forEach(q => {
+    setQuizIndex(q.id, 0);
+  });
+});
+
+/* -------------------------
+   Helpers
+-------------------------- */
+function getCheckedValue(name){
+  const nodes = document.getElementsByName(name);
+  for (const n of nodes){
+    if (n.checked) return n.value;
+  }
+  return null;
+}
+
+function setFeedback(feedbackEl, reasonEl, isCorrect, feedbackText, reasonText){
+  feedbackEl.textContent = feedbackText;
+  feedbackEl.classList.remove("quiz-correct", "quiz-wrong", "quiz-note");
+  feedbackEl.classList.add(isCorrect ? "quiz-correct" : "quiz-wrong");
+
+  reasonEl.textContent = reasonText;
+  // keep reason in normal text color; or tint slightly:
+  // reasonEl.className = "quiz-reason quiz-note";
+}
+
+/* -------------------------
+   Q1: True/False
+-------------------------- */
+function submitQ1(quizId){
+  const val = getCheckedValue("q1_tf");
+  const fb = document.getElementById(`${quizId}-q1-feedback`);
+  const rs = document.getElementById(`${quizId}-q1-reason`);
+
+  const reason = "Reason: The meaning of a perfect blackbody is that the object does not reflect any light, and only emits light — this light can be any color (examples of nearly perfect blackbodies include the sun, incandescent lightbulbs, and stove burners).";
+
+  if (!val){
+    fb.textContent = "Please select True or False.";
+    fb.classList.remove("quiz-correct", "quiz-wrong");
+    fb.classList.add("quiz-note");
+    rs.textContent = "";
+    return;
+  }
+
+  const correct = (val === "false");
+  const msg = correct ? "Correct: False." : "Not quite: the correct answer is False.";
+  setFeedback(fb, rs, correct, msg, reason);
+}
+
+/* -------------------------
+   Q2: Multiple choice
+-------------------------- */
+function submitQ2(quizId){
+  const val = getCheckedValue("q2_mc");
+  const fb = document.getElementById(`${quizId}-q2-feedback`);
+  const rs = document.getElementById(`${quizId}-q2-reason`);
+
+  const reason = "Reason: Higher energy levels have greater energy, so if an electron drops from a higher energy level to a lower energy level, it loses energy.";
+
+  if (!val){
+    fb.textContent = "Please select an option.";
+    fb.classList.remove("quiz-correct", "quiz-wrong");
+    fb.classList.add("quiz-note");
+    rs.textContent = "";
+    return;
+  }
+
+  const correct = (val === "lost");
+  const msg = correct ? "Correct: The electron lost energy." : "Not quite: the correct answer is that the electron lost energy.";
+  setFeedback(fb, rs, correct, msg, reason);
+}
+
+/* -------------------------
+   Q3: Numeric input
+-------------------------- */
+function submitQ3(quizId){
+  const input = document.getElementById(`${quizId}-q3-input`);
+  const fb = document.getElementById(`${quizId}-q3-feedback`);
+  const rs = document.getElementById(`${quizId}-q3-reason`);
+
+  const reason = "Reason: E = hf, where E is the energy, h is Planck's constant, and f is frequency. Since the energy is expected in units of eV, the value of Planck's constant here is 4.14 × 10⁻¹⁵ eV·s.";
+
+  // Accept values like "1.24", "1.24 eV", "1,24" (convert comma), etc.
+  let raw = (input.value || "").trim().replace(",", ".");
+  raw = raw.replace(/[^0-9.\-+eE]/g, ""); // strip units/extra chars
+  const x = Number(raw);
+
+  if (!raw || Number.isNaN(x)){
+    fb.textContent = "Please enter a numeric value (e.g., 1.24).";
+    fb.classList.remove("quiz-correct", "quiz-wrong");
+    fb.classList.add("quiz-note");
+    rs.textContent = "";
+    return;
+  }
+
+  const answer = 1.24;
+  const tol = 0.03;
+  const correct = Math.abs(x - answer) <= tol;
+
+  const msg = correct
+    ? `Correct: ${x.toFixed(2)} eV is within ±${tol.toFixed(2)} of ${answer.toFixed(2)} eV.`
+    : `Not quite: the expected value is ${answer.toFixed(2)} eV (accepted range: ${ (answer - tol).toFixed(2) } to ${ (answer + tol).toFixed(2) }).`;
+
+  setFeedback(fb, rs, correct, msg, reason);
+}
+</script>
+
+</body>
+</html>

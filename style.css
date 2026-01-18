@@ -1,0 +1,529 @@
+/* style.css */
+:root{
+  --bg: #000;
+  --panel: #111;
+  --text: #fff;
+  --hover: #1a1a1a;
+  --hover2: #222;
+
+  /* Muted blue accent */
+  --accent: #7497C4;
+
+  --maxw: 900px;
+  --pad: 24px;
+  --radius: 10px;
+}
+
+a{
+  color: var(--accent);        /* your muted blue */
+  text-decoration: none;      /* optional: remove underline */
+}
+
+/* Force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+}
+
+/* NAV */
+nav{
+  width: 100%;
+  max-width: var(--maxw);
+  padding: 14px var(--pad);
+  display: flex;
+  justify-content: center;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li{
+  position: relative;
+}
+
+nav a{
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  display: inline-block;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a:focus-visible{
+  background: #1C1F2E;
+  outline: none;
+}
+
+/* Dropdown */
+.dropdown{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 8px;
+  background: transparent;
+  min-width: 220px;
+  z-index: 10;
+}
+
+/* The actual dropdown panel */
+.dropdown .panel{
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 6px;
+}
+
+/* Show dropdown on hover OR keyboard focus */
+nav li:hover .dropdown,
+nav li:focus-within .dropdown{
+  display: block;
+}
+
+.dropdown a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.dropdown a:hover,
+.dropdown a:focus-visible{
+  background: #1C1F2E;
+}
+
+/* HERO header under the nav */
+.hero{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px var(--pad) 0px;
+}
+
+.hero-inner{
+  width: 100%;
+  max-width: 852px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Background image + overlay */
+.hero-banner{
+  position: relative;
+  min-height: 125px;
+  background-image: url("banner.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay so text stays readable */
+.hero-banner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+/* Name text on top of the banner */
+.hero-title{
+  position: relative;
+  margin: 0;
+  padding: 34px 28px;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: 2.2rem;
+}
+
+/* Slightly smaller on narrow screens */
+@media (max-width: 600px){
+  .hero-title{
+    font-size: 1.7rem;
+    padding: 28px 20px;
+  }
+}
+
+/* MAIN */
+main{
+  width: 100%;
+}
+
+main > .content{
+  width: 100%;
+  max-width: var(--maxw);
+  padding: 0px var(--pad);
+  display: flex;
+  justify-content: center;
+}
+
+/* The rounded rectangle panel */
+.panel-box{
+  background: #1C1F2E;
+  border-radius: 14px;
+  padding: 40px 50px;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.panel-box h2.section-header{
+  margin-top: -2px;
+  margin-bottom: 18px;
+}
+
+/* Headings */
+h1{
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  margin: 0 0 18px 0;
+  text-align: center;
+}
+
+/* Body text */
+p{
+  line-height: 1.6;
+  opacity: 0.95;
+  margin: 0 0 14px 0;
+  text-align: left;
+}
+
+/* Justified body content text */
+.body-content{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.left-photo{
+  float: left;
+  width: 200px;
+  margin: 0 20px 12px 0;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.right-photo{
+  float: right;
+  width: 200px;
+  margin: 0 0 12px 20px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.pull-quote{
+  position: relative;
+  margin: 30px auto;
+  padding: 28px 32px 20px;
+  max-width: 600px;
+
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.6;
+
+  color: var(--accent);
+  z-index: 1;
+}
+
+.pull-quote::before{
+  content: "“";
+  position: absolute;
+  top: 12px;
+  left: -12px;
+
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 5.5rem;
+  line-height: 1;
+
+  color: rgba(95, 126, 168, 0.35);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pull-quote::after{
+  content: "”";
+  position: absolute;
+  bottom: -36px;
+  right: 2px;
+
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 5.5rem;
+  line-height: 1;
+
+  color: rgba(95, 126, 168, 0.35);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* CV layout (two-column section labels like the PDF) */
+.cv-top{
+  margin-bottom: 18px;
+}
+
+.cv-name{
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  text-align: left;
+}
+
+.cv-subtitle{
+  margin: 0 0 6px 0;
+  text-align: left;
+  opacity: 0.95;
+}
+
+.cv-contact{
+  margin: 0 0 10px 0;
+  text-align: left;
+  opacity: 0.9;
+}
+
+.cv-section{
+  display: grid;
+  grid-template-columns: 220px 1fr; /* label | content */
+  column-gap: 28px;
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.10); /* optional separator */
+}
+
+.cv-label{
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  opacity: 0.95;
+  text-align: left;
+}
+
+.cv-body{
+  text-align: left;
+}
+
+.cv-body li{
+  margin: 6px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.cv-body p{
+  margin: 6px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.cv-entry{
+  margin-bottom: 14px;
+}
+
+.cv-entry-head{
+  display: flex;
+  justify-content: space-between;  /* title left, dates right */
+  gap: 12px;
+  font-weight: 700;
+}
+
+.cv-entry-sub{
+  opacity: 0.95;
+  margin: 4px 0 6px 0;
+  font-style: italic;
+}
+
+/* Make bullet spacing resemble a CV */
+.cv-body ul{
+  margin: 6px 0 0 18px;
+  padding: 0;
+}
+
+.cv-body li{
+  margin: 6px 0;
+}
+
+/* Responsive: collapse to single column on small screens */
+@media (max-width: 700px){
+  .cv-section{
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
+}
+
+.video-wrapper{
+  position: relative;
+  width: 100%;
+  max-width: 800px;   /* keeps it from getting absurdly wide */
+  aspect-ratio: 16 / 9;
+  margin: 20px auto;
+}
+
+.video-wrapper iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.pdf-container{
+  width: 100%;
+  height: 700px;          /* adjust to taste */
+  margin: 20px 0;
+}
+
+.pdf-container iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Quiz container */
+.quiz{
+  margin: 26px 0;
+}
+
+/* Top nav row */
+.quiz-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Left/right arrows */
+.quiz-nav{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.quiz-nav:hover,
+.quiz-nav:focus-visible{
+  background: #1C1F2E;
+  outline: none;
+}
+
+/* Indicator */
+.quiz-indicator{
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
+/* Question card */
+.quiz-card{
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+
+/* Question text */
+.quiz-q{
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+/* Options */
+.quiz-options label{
+  display: block;
+  margin: 2px 0; /* tighter spacing */
+  text-align: left;
+}
+
+/* Numeric input row */
+.quiz-input-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 12px;
+}
+
+.quiz-input{
+  width: min(320px, 100%);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.15);
+  color: var(--text);
+}
+
+.quiz-input:focus{
+  outline: none;
+  border-color: rgba(116,151,196,0.7);
+}
+
+.quiz-unit{
+  opacity: 0.9;
+}
+
+/* Submit button: visible shape always */
+.quiz-submit{
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.12);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.quiz-submit:hover,
+.quiz-submit:focus-visible{
+  background: #1C1F2E;
+  outline: none;
+}
+
+/* Feedback + reason */
+.quiz-feedback{
+  margin-top: 10px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.quiz-reason{
+  margin-top: 6px;
+  opacity: 0.95;
+  text-align: left;
+}
+
+/* Utility colors */
+.quiz-correct{ color: #7fbf7f; }
+.quiz-wrong{ color: #e08a8a; }
+.quiz-note{ color: var(--accent); }
